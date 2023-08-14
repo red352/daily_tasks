@@ -6,14 +6,17 @@ jobs:
   ikuuu_sign:
     runs-on: ubuntu-latest
     steps:
-      - name: clone repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install requirements
         run: |
-          git clone https://github.com/cat163/daily_tasks
-          cd daily_tasks
-      - name: install dependencies
-        run: | 
-          pip install pytest
-          pip install requests
-          pip install InsecureRequestWarning
-      - name: run pytest
-        run: pytest
+          python3 -m pip install --upgrade pip
+          pip3 install requests 
+          pip3 install urllib3
+      - name: Run
+        run: python3 ./ikuuu_sign.py
+      
