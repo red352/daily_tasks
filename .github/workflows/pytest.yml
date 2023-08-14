@@ -1,0 +1,16 @@
+name: python-daily-tasks
+
+on: workflow_dispatch
+
+jobs:
+  ikuuu_sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repository
+        run: |
+          git clone https://github.com/cat163/daily_tasks
+          cd daily_tasks
+      - name: install pytest
+        run: pip install pytest
+      - name: run pytest
+        run: pytest
