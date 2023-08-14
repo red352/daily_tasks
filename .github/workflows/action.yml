@@ -1,4 +1,4 @@
-name: python-daily-tasks
+name: action
 
 on: workflow_dispatch
 
@@ -10,7 +10,10 @@ jobs:
         run: |
           git clone https://github.com/cat163/daily_tasks
           cd daily_tasks
-      - name: install pytest
-        run: pip install pytest
+      - name: install dependencies
+        run: | 
+          pip install pytest
+          pip install requests
+          pip install InsecureRequestWarning
       - name: run pytest
         run: pytest
