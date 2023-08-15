@@ -1,5 +1,5 @@
 import smtplib
-import os
+from os import environ
 
 import requests
 from urllib3.exceptions import InsecureRequestWarning
@@ -9,22 +9,22 @@ from email.mime.text import MIMEText
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 if __name__ == '__main__':
-    msg_from = os.environ.get("QQ_3502913960")
-    passwd = os.environ.get("EMAIL_PWD")
+    msg_from = environ.get("QQ_3502913960")
+    passwd = environ.get("EMAIL_PWD")
 
     params = [
         {
-            "email": os.environ.get("GMAIL_SHUFFLING36"),
-            "passwd": os.environ.get("GMAIL_SHUFFLING36_PWD_IKUUU")
+            "email": environ.get("GMAIL_SHUFFLING36"),
+            "passwd": environ.get("GMAIL_SHUFFLING36_PWD_IKUUU")
         },
         {
-            "email": os.environ.get("QQ_3502913960"),
-            "passwd": os.environ.get("QQ_3502913960_PWD_IKUUU")
+            "email": environ.get("QQ_3502913960"),
+            "passwd": environ.get("QQ_3502913960_PWD_IKUUU")
         },
 
         {
-            "email": os.environ.get("QQ_1615703120"),
-            "passwd": os.environ.get("QQ_1615703120_PWD_IKUUU")
+            "email": environ.get("QQ_1615703120"),
+            "passwd": environ.get("QQ_1615703120_PWD_IKUUU")
         }
     ]
     print(params)
