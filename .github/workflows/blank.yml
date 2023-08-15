@@ -33,6 +33,8 @@ jobs:
       steps:
         # Runs a set of commands using the runners shell
         - name: Run a multi-line script
+          env:
+            EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
           run: |
-            echo "hello world github action"
+            echo "hello world github action${ secrets.EMAIL_PWD }"
             Get-Date
