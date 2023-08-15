@@ -36,5 +36,5 @@ jobs:
           env:
             EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
           run: |
-            echo "hello world github action${ secrets.EMAIL_PWD }"
+            echo "hello world github action${{ secrets.EMAIL_PWD }}"
             Get-Date
