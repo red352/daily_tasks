@@ -13,6 +13,10 @@ if __name__ == '__main__':
         {
             "email": "3502913960@qq.com",
             "passwd": "4h7trn6.pyPs9YR"
+        },
+        {
+            "email": "1615703120@qq.com",
+            "passwd": "lxc1615703120"
         }
     ]
     for param in params:
