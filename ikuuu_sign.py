@@ -27,7 +27,6 @@ if __name__ == '__main__':
             "passwd": os.environ.get("QQ_1615703120_PWD_IKUUU")
         }
     ]
-    print(os.environ["QQ_1615703120"])
     print(params)
     request = requests.session()
 
