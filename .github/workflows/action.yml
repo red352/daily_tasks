@@ -28,4 +28,8 @@ jobs:
           pip3 install urllib3
       - name: Run
         run: python3 ./ikuuu_sign.py
+      - name: Show the timezone
+        run: |
+          echo "The timezone is $TZ"
+          date
       
