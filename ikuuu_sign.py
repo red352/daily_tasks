@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 if __name__ == '__main__':
-    msg_from = os.environ.get("USER_EMAIL")
+    msg_from = os.environ.get("QQ_3502913960")
     passwd = os.environ.get("EMAIL_PWD")
 
     params = [
@@ -18,8 +18,8 @@ if __name__ == '__main__':
             "passwd": os.environ.get("GMAIL_SHUFFLING36_PWD_IKUUU")
         },
         {
-            "email": os.environ.get("USER_EMAIL"),
-            "passwd": os.environ.get("USER_PASSWORD")
+            "email": os.environ.get("QQ_3502913960"),
+            "passwd": os.environ.get("QQ_3502913960_PWD_IKUUU")
         },
 
         {
