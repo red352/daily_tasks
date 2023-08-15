@@ -15,14 +15,6 @@ env:
 jobs:
   ikuuu_sign:
     runs-on: ubuntu-latest
-    env:
-      EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
-      USER_EMAIL: ${{ secrets.QQ_3502913960 }}
-      USER_PASSWORD: ${{ secrets.QQ_3502913960_PWD_IKUUU }}
-      GMAIL_SHUFFLING36: ${{ secrets.GMAIL_SHUFFLING36 }}
-      GMAIL_SHUFFLING36_PWD_IKUUU: ${{ secrets.GMAIL_SHUFFLING36_PWD_IKUUU }}
-      QQ_3502913960: ${{ secrets.QQ_1615703120 }}
-      QQ_1615703120_PWD_IKUUU: ${{ secrets.QQ_1615703120_PWD_IKUUU }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,6 +28,14 @@ jobs:
           pip3 install requests 
           pip3 install urllib3
       - name: Run
+        env:
+          EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
+          USER_EMAIL: ${{ secrets.QQ_3502913960 }}
+          USER_PASSWORD: ${{ secrets.QQ_3502913960_PWD_IKUUU }}
+          GMAIL_SHUFFLING36: ${{ secrets.GMAIL_SHUFFLING36 }}
+          GMAIL_SHUFFLING36_PWD_IKUUU: ${{ secrets.GMAIL_SHUFFLING36_PWD_IKUUU }}
+          QQ_3502913960: ${{ secrets.QQ_1615703120 }}
+          QQ_1615703120_PWD_IKUUU: ${{ secrets.QQ_1615703120_PWD_IKUUU }}
         run: python3 ./ikuuu_sign.py
       - name: Show the timezone
         run: |
