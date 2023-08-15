@@ -28,6 +28,7 @@ if __name__ == '__main__':
         }
     ]
     print(os.environ)
+    print(params)
     request = requests.session()
 
     for param in params:
@@ -37,7 +38,7 @@ if __name__ == '__main__':
         msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
         re = request.post(url='https://ikuuu.art/user/checkin', verify=False)
         print(re.json())
-        if re.json()['ret'] == 0:
+        if re.json()['ret'] == 1:
             msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
             re = request.get(url='https://ikuuu.art/user/logout', verify=False)
             print('已退出账号')
