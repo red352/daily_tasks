@@ -1,4 +1,5 @@
 import smtplib
+import os
 
 import requests
 from urllib3.exceptions import InsecureRequestWarning
@@ -8,24 +9,25 @@ from email.mime.text import MIMEText
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 if __name__ == '__main__':
-    msg_from = '3502913960@qq.com'
-    passwd = 'hnmadfnhdbyndaib'
+    msg_from = os.environ.get("USER_EMAIL")
+    passwd = os.environ.get("EMAIL_PWD")
 
     params = [
         {
-            "email": "shuffling36@gmail.com",
-            "passwd": "red123456"
+            "email": os.environ.get("GMAIL_SHUFFLING36"),
+            "passwd": os.environ.get("GMAIL_SHUFFLING36_PWD_IKUUU")
         },
         {
-            "email": "3502913960@qq.com",
-            "passwd": "4h7trn6.pyPs9YR"
+            "email": os.environ.get("USER_EMAIL"),
+            "passwd": os.environ.get("USER_PASSWORD")
         },
 
         {
-            "email": "1615703120@qq.com",
-            "passwd": "lxc1615703120"
+            "email": os.environ.get("QQ_1615703120"),
+            "passwd": os.environ.get("QQ_1615703120_PWD_IKUUU")
         }
     ]
+    print(os.environ)
     request = requests.session()
 
     for param in params:
@@ -38,6 +40,7 @@ if __name__ == '__main__':
         if re.json()['ret'] == 1:
             msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
             re = request.get(url='https://ikuuu.art/user/logout', verify=False)
+            print('已退出账号')
             msg.attach(MIMEText('已退出账号', 'plain', 'utf-8'))
             msg['Subject'] = 'ikuuu 每日流量签到提醒'
             msg['From'] = msg_from
@@ -50,4 +53,3 @@ if __name__ == '__main__':
             continue
         re = request.get(url='https://ikuuu.art/user/logout', verify=False)
         print('已退出账号')
-        # else:
