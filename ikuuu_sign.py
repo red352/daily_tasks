@@ -50,4 +50,3 @@ if __name__ == '__main__':
             continue
         re = request.get(url='https://ikuuu.art/user/logout', verify=False)
         print('已退出账号')
-        # else:
