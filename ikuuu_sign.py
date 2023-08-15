@@ -35,7 +35,7 @@ if __name__ == '__main__':
         msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
         re = request.post(url='https://ikuuu.art/user/checkin', verify=False)
         print(re.json())
-        if re.json()['ret'] == 1:
+        if re.json()['ret'] == 0:
             msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
             re = request.get(url='https://ikuuu.art/user/logout', verify=False)
             msg.attach(MIMEText('已退出账号', 'plain', 'utf-8'))
