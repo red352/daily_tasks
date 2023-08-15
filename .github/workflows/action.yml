@@ -28,7 +28,7 @@ jobs:
           pip3 install requests 
           pip3 install urllib3
       - name: Run
-        env:
+        environment:
           EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
           USER_EMAIL: ${{ secrets.QQ_3502913960 }}
           USER_PASSWORD: ${{ secrets.QQ_3502913960_PWD_IKUUU }}
