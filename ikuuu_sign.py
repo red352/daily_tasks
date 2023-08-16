@@ -9,16 +9,16 @@ from email.mime.text import MIMEText
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 if __name__ == '__main__':
-    msg_from = environ.get("QQ_3502913960")
+    msg_from = '3502913960@qq.com'
     passwd = environ.get("EMAIL_PWD")
 
     params = [
         {
-            "email": environ.get("GMAIL_SHUFFLING36"),
+            "email": 'shuffling36@gmail.com',
             "passwd": environ.get("GMAIL_SHUFFLING36_PWD_IKUUU")
         },
         {
-            "email": environ.get("QQ_3502913960"),
+            "email": '3502913960@qq.com',
             "passwd": environ.get("QQ_3502913960_PWD_IKUUU")
         },
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
         msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
         re = request.post(url='https://ikuuu.art/user/checkin', verify=False)
         print(re.json())
-        if re.json()['ret'] == 1:
+        if re.json()['ret'] == 0:
             msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
             re = request.get(url='https://ikuuu.art/user/logout', verify=False)
             print('已退出账号')
