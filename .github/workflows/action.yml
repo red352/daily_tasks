@@ -5,11 +5,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '10 2 * * *'
+    - cron: '13 2 * * *'
   workflow_dispatch:
-  
-env:
-  TZ: Asia/Shanghai
 
 
 jobs:
