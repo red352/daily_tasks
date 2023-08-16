@@ -1,9 +1,6 @@
 name: Example Workflow
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   example_job:

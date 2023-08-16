@@ -23,7 +23,7 @@ if __name__ == '__main__':
         },
 
         {
-            "email": environ.get("QQ_1615703120"),
+            "email": '1615703120@qq.com',
             "passwd": environ.get("QQ_1615703120_PWD_IKUUU")
         }
     ]
