@@ -48,6 +48,8 @@ if __name__ == '__main__':
             s.login(msg_from, passwd)
             if param['email'].__eq__('shuffling36@gmail.com'):
                 param['email'] = '1829462342@qq.com'
+            if param['email'].__eq__('1615703120@qq.com'):
+                param['email'] = '669858016@qq.com'
             s.sendmail(msg_from, param['email'], msg.as_string())
             print(f'邮件发送成功:{msg_from}  ---> {param["email"]}')
             continue
