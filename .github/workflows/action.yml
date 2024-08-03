@@ -28,10 +28,12 @@ jobs:
           pip3 install urllib3
       - name: Run
         env:
-          EMAIL_PWD: ${{ secrets.EMAIL_PWD }}
-          GMAIL_SHUFFLING36_PWD_IKUUU: ${{ secrets.GMAIL_SHUFFLING36_PWD_IKUUU }}
-          QQ_1615703120_PWD_IKUUU: ${{ secrets.QQ_1615703120_PWD_IKUUU }}
-          QQ_3502913960_PWD_IKUUU: ${{ secrets.QQ_3502913960_PWD_IKUUU }}
+          EMAIL: ${{vars.EMAIL}}
+          EMAIL_PWD: ${{vars.EMAIL_PWD}}
+          TARGET_DOMAIN: ${{vars.TARGET_DOMAIN}}
+          LOGIN_EMAILS: ${{vars.LOGIN_EMAILS}}
+          LOGIN_PASSWDS: ${{vars.LOGIN_PASSWDS}}
+          LOGIN_EMAILS_NOTIFY: ${{vars.LOGIN_EMAILS_NOTIFY}}
         run: python3 ./ikuuu_sign.py
       - name: Show the timezone
         run: |
