@@ -9,8 +9,12 @@ from email.mime.text import MIMEText
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
-def is_blank(s):
+def is_blank(s: str):
     return not s or s.strip() == ''
+
+
+def write_mail_msg(msg: MIMEMultipart, string_to_write: str):
+    msg.attach(MIMEText(string_to_write, 'plain', 'utf-8'))
 
 
 if __name__ == '__main__':
@@ -39,17 +43,18 @@ if __name__ == '__main__':
         msg = MIMEMultipart()
         re = request.post(url=target_domain + '/auth/login', params=param, verify=False)
         print(re.json()['msg'])
-        msg.attach(MIMEText(re.json()['msg'] + '\r\n', 'plain', 'utf-8'))
+        write_mail_msg(msg, re.json()['msg'] + '\r\n')
         re = request.post(url=target_domain + '/user/checkin', verify=False)
         try:
             print(re.json())
         except Exception as e:
-            msg.attach(MIMEText('签到出错' + '\r\n', 'plain', 'utf-8'))
+            write_mail_msg(msg, '签到出错' + '\r\n')
             continue
         if re.json()['ret'] == 1:
+            write_mail_msg(msg, re.json()['msg'] + '\r\n')
             re = request.get(url=target_domain + '/user/logout', verify=False)
             print('已退出账号')
-            msg.attach(MIMEText('已退出账号', 'plain', 'utf-8'))
+            write_mail_msg(msg, '已退出账号')
         msg['Subject'] = 'ikuuu 每日流量签到提醒'
         msg['From'] = msg_from
         s = smtplib.SMTP_SSL('smtp.qq.com', 465)
